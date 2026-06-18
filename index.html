@@ -1,57 +1,396 @@
-<div class="container">
-    <h2 style="text-align:center; color:#0077cc;">
-        Courses Offered
-    </h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Management System by K S N Murthy</title>
 
-    <table class="course-table">
-        <thead>
-            <tr>
-                <th>S.No</th>
-                <th>Course Code</th>
-                <th>Course Name</th>
-                <th>Credits</th>
-                <th>Faculty</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>IT301</td>
-                <td>Data Structures</td>
-                <td>4</td>
-                <td>Dr. K. S. N. Murthy</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>IT302</td>
-                <td>Database Management Systems</td>
-                <td>4</td>
-                <td>Prof. A. Kumar</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>IT303</td>
-                <td>Operating Systems</td>
-                <td>3</td>
-                <td>Prof. P. Rao</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>IT304</td>
-                <td>Computer Networks</td>
-                <td>3</td>
-                <td>Prof. S. Devi</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>IT305</td>
-                <td>Machine Learning</td>
-                <td>4</td>
-                <td>Dr. R. Krishna</td>
-            </tr>
-        </tbody>
-    </table>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+/* Header */
+header{
+    background:linear-gradient(135deg,#0f4c81,#2196f3);
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo i{
+    font-size:45px;
+    color:#ffd700;
+}
+
+.logo-text h1{
+    font-size:28px;
+}
+
+.logo-text p{
+    font-size:14px;
+}
+
+/* Navigation */
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    padding:15px 20px;
+    display:block;
+    font-weight:600;
+}
+
+nav ul li a:hover{
+    background:rgba(255,255,255,0.2);
+    border-radius:5px;
+}
+
+/* Dropdown */
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:220px;
+    top:100%;
+    left:0;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    z-index:100;
+}
+
+.dropdown-content a{
+    color:#333;
+    padding:12px 15px;
+}
+
+.dropdown-content a:hover{
+    background:#e3f2fd;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* Hero Section */
+
+.hero{
+    height:500px;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:22px;
+}
+
+.btn{
+    margin-top:25px;
+    display:inline-block;
+    padding:12px 25px;
+    background:#ffd700;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* About Section */
+
+section{
+    padding:60px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0f4c81;
+    font-size:35px;
+}
+
+.about{
+    display:flex;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:45%;
+    border-radius:15px;
+}
+
+.about-text{
+    width:55%;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Subject Cards */
+
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:50px;
+    color:#2196f3;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#0f4c81;
+    margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact{
+    background:#0f4c81;
+    color:white;
+    text-align:center;
+}
+
+.contact p{
+    margin:10px;
+    font-size:18px;
+}
+
+/* Footer */
+
+footer{
+    background:#082a45;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+.about{
+    flex-direction:column;
+}
+
+.about img,
+.about-text{
+    width:100%;
+}
+
+.hero-content h2{
+    font-size:35px;
+}
+
+nav ul{
+    flex-direction:column;
+    align-items:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+
+<header>
+
+<div class="logo">
+    <i class="fas fa-graduation-cap"></i>
+    <div class="logo-text">
+        <h1>Learning Management System</h1>
+        <p>By K S N Murthy</p>
     </div>
-    <a href="DWDM Syllabus.pdf">
-Syllabus
-    </a>
+</div>
+
+<nav>
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About Us</a></li>
+
+<li class="dropdown">
+<a href="#subjects">Subjects ▾</a>
+
+<div class="dropdown-content">
+<a href="#software">Software Engineering</a>
+<a href="#datamining">Data Mining</a>
+<a href="#warehouse">Data Warehousing</a>
+</div>
+
+</li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+</nav>
+
+</header>
+
+<!-- Hero Section -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+<h2>Welcome to LMS</h2>
+<p>Enhancing Learning Through Technology and Innovation</p>
+<a href="#subjects" class="btn">Explore Courses</a>
+</div>
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+<h2 class="section-title">About Us</h2>
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655" alt="Education">
+
+<div class="about-text">
+
+<p>
+The Learning Management System (LMS) by K S N Murthy provides
+high-quality educational resources, interactive learning materials,
+and course management facilities for students and professionals.
+</p>
+
+<br>
+
+<p>
+Our mission is to make learning engaging, accessible, and effective
+through modern teaching methodologies and digital technologies.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Subjects -->
+
+<section id="subjects">
+
+<h2 class="section-title">Subjects Offered</h2>
+
+<div class="subjects">
+
+<div class="card" id="software">
+<i class="fas fa-laptop-code"></i>
+<h3>Software Engineering</h3>
+<p>
+Learn software development life cycle, requirements engineering,
+design patterns, testing methodologies, and project management.
+</p>
+</div>
+
+<div class="card" id="datamining">
+<i class="fas fa-database"></i>
+<h3>Data Mining</h3>
+<p>
+Explore classification, clustering, association rule mining,
+predictive analytics, and machine learning techniques.
+</p>
+</div>
+
+<div class="card" id="warehouse">
+<i class="fas fa-server"></i>
+<h3>Data Warehousing</h3>
+<p>
+Understand ETL processes, OLAP operations, data warehouse
+architecture, and business intelligence systems.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+<h2 class="section-title" style="color:white;">
+Contact Information
+</h2>
+
+<p><i class="fas fa-user"></i> K S N Murthy</p>
+<p><i class="fas fa-envelope"></i> murthy@example.com</p>
+<p><i class="fas fa-phone"></i> +91 9876543210</p>
+<p><i class="fas fa-map-marker-alt"></i> Andhra Pradesh, India</p>
+
+</section>
+
+<footer>
+© 2026 Learning Management System by K S N Murthy | All Rights Reserved
+</footer>
+
+</body>
+</html>
